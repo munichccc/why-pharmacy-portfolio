@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำไมต้องเภสัชศาสตร์ | กมลทิพย์ ลัคนาวิวัฒน์</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Charm:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Screen 1: Cover Screen -->
+        <section class="screen cover-screen" id="coverScreen">
+            <div class="cover-wrapper">
+                <div class="cover-image-container">
+                    <img src="portfolio.jpg" alt="หน้าปกแฟ้มสะสมผลงาน" class="portfolio-cover-img">
+                    <div class="cover-glow"></div>
+                </div>
+                <div class="cover-info-card">
+                    <div class="cover-badge">PORTFOLIO INSIGHT</div>
+                    <h1 class="student-name">กมลทิพย์ ลัคนาวิวัฒน์</h1>
+                    <p class="student-target">คณะเภสัชศาสตร์ สาขาบริบาลเภสัชกรรม</p>
+                    <button class="btn btn-primary btn-enter" id="btnEnter">
+                        <span>อ่านส่วน "ทำไมต้องเภสัชศาสตร์"</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Decorative curves on background -->
+            <div class="bg-wave wave-pink-top"></div>
+            <div class="bg-wave wave-navy-bottom"></div>
+        </section>
+
+        <!-- Screen 2: Main Portfolio Content Screen -->
+        <section class="screen content-screen hidden" id="contentScreen">
+            <div class="main-layout">
+                
+                <!-- Sticky Sidebar Profile -->
+                <aside class="sidebar animate-fade-in-left">
+                    <button class="btn-back" id="btnBack">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>กลับไปหน้าแรก</span>
+                    </button>
+                    
+                    <div class="profile-card">
+                        <div class="profile-img-container">
+                            <img src="angun.jpg" alt="นางสาวกมลทิพย์ ลัคนาวิวัฒน์" class="profile-img">
+                            <div class="profile-border"></div>
+                        </div>
+                        
+                        <div class="profile-details">
+                            <h2 class="profile-name">นางสาวกมลทิพย์ ลัคนาวิวัฒน์</h2>
+                            <p class="profile-school">โรงเรียนวรนารีเฉลิม จังหวัดสงขลา</p>
+                            
+                            <div class="divider-gold"></div>
+                            
+                            <div class="target-badge">
+                                <span class="badge-label">เป้าหมายการศึกษา</span>
+                                <span class="badge-value">คณะเภสัชศาสตร์</span>
+                                <span class="badge-subvalue">สาขาบริบาลเภสัชกรรม</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="#inspiration" class="nav-link active" data-section="inspiration"><span class="dot"></span><span>1. แรงบันดาลใจ</span></a></li>
+                            <li><a href="#academic" class="nav-link" data-section="academic"><span class="dot"></span><span>2. ความพร้อมทางวิชาการ</span></a></li>
+                            <li><a href="#skills" class="nav-link" data-section="skills"><span class="dot"></span><span>3. ทักษะทางสังคม & อาสา</span></a></li>
+                            <li><a href="#vision" class="nav-link" data-section="vision"><span class="dot"></span><span>4. อุดมการณ์และเป้าหมาย</span></a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="sidebar-footer">
+                        <img src="psu.webp" alt="Prince of Songkla University Logo" class="psu-logo">
+                        <span>มุ่งสู่รั้วสีบลูบล็อง</span>
+                    </div>
+                </aside>
+                
+                <!-- Scrollable Content Area -->
+                <main class="content-area">
+                    <header class="content-header animate-fade-in-down">
+                        <span class="sub-header-title">WHY PHARMACY?</span>
+                        <h1 class="main-title">ทำไมต้องเภสัชศาสตร์?</h1>
+                        <p class="header-desc">ถอดบทเรียน ความคิด ความมุ่งมั่น และตัวตนของข้าพเจ้าสู่เส้นทางวิชาชีพผู้ดูแลความปลอดภัยด้านยา</p>
+                    </header>
+                    
+                    <div class="cards-container">
+                        
+                        <!-- Card 1: Inspiration -->
+                        <section class="content-card animate-scroll-reveal" id="inspiration">
+                            <div class="card-tag">SECTION 01</div>
+                            <h2 class="card-title">
+                                <span class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+                                        <path d="M12 7v5l3 3"/>
+                                    </svg>
+                                </span>
+                                แรงบันดาลใจจากความห่วงใยในครอบครัว
+                            </h2>
+                            
+                            <div class="quote-block">
+                                <span class="quote-mark">“</span>
+                                <p class="quote-text">ยาเป็นได้ทั้งคุณและโทษหากขาดผู้เชี่ยวชาญ คณะเภสัชศาสตร์จึงไม่ใช่เพียงแค่คณะที่เรียนเรื่องยา แต่คือศาสตร์แห่งความแม่นยำที่ช่วยต่อลมหายใจและยกระดับคุณภาพชีวิตของผู้ป่วย</p>
+                            </div>
+                            
+                            <div class="card-text">
+                                <p>ความสนใจต่อวิชาชีพเภสัชศาสตร์ของข้าพเจ้าเริ่มต้นจากภาพคุ้นตาในครอบครัว ข้าพเจ้าเติบโตมากับคุณยายที่ต้องรับประทานยาหลายเม็ดในแต่ละวันเพื่อรักษาโรคเรื้อรัง ภาพเหล่านั้นจุดประกายความสงสัยใคร่รู้ว่า <em>"เม็ดยาขนาดเล็กเหล่านี้เดินทางไปออกฤทธิ์และบำบัดรักษาโรคในร่างกายของเราได้อย่างไร"</em></p>
+                                <p>จนกระทั่งวันหนึ่ง ข้าพเจ้าได้ติดตามคุณยายไปโรงพยาบาลและได้ฟังเภสัชกรอธิบายกลไกการทำงานของยา ตลอดจนการเตือนเรื่องปฏิกิริยาระหว่างยา (Drug Interaction) อย่างละเอียดละออและเป็นกันเอง เหตุการณ์นั้นทำให้ข้าพเจ้าตระหนักว่า <strong>ยาเป็นดาบสองคม</strong> ที่ต้องใช้ความรู้อันเที่ยงตรงในการควบคุมดูแล ความประทับใจในบทบาทของผู้พิทักษ์ความปลอดภัยนี้ กลายเป็นแรงผลักดันสำคัญที่ทำให้ข้าพเจ้าตั้งเป้าหมายอย่างแน่วแน่ที่จะเข้าศึกษาในคณะเภสัชศาสตร์</p>
+                            </div>
+                        </section>
+
+                        <!-- Card 2: Academic Readiness -->
+                        <section class="content-card animate-scroll-reveal" id="academic">
+                            <div class="card-tag">SECTION 02</div>
+                            <h2 class="card-title">
+                                <span class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 22h20M4 18h16M7 10h10M10 6h4M12 2v4"/>
+                                    </svg>
+                                </span>
+                                ความพร้อมทางวิชาการและรากฐานกระบวนการวิจัย
+                            </h2>
+                            
+                            <div class="card-text">
+                                <p>ในระดับมัธยมศึกษาตอนปลาย ข้าพเจ้าได้เตรียมความพร้อมอย่างเข้มข้นใน <strong>สายวิทยาศาสตร์-คณิตศาสตร์</strong> ข้าพเจ้ามีความสุขทุกครั้งที่เรียนทฤษฎีและได้ลงมือทดลองจริงในห้องปฏิบัติการ โดยเฉพาะในวิชาเคมีและชีววิทยา</p>
+                                
+                                <div class="project-highlight-box">
+                                    <div class="box-icon">
+                                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4.5 16.5c-1.5 1.25-2.5 3-2.5 5h20c0-2-1-3.75-2.5-5M12 2v14M8 12l4 4 4-4"/>
+                                            <circle cx="12" cy="6" r="4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="box-info">
+                                        <h4>โครงงานวิทยาศาสตร์เด่น</h4>
+                                        <p><strong>"การศึกษาประสิทธิภาพของสารสกัดหยาบจากพืชสมุนไพรท้องถิ่นในการยับยั้งการเจริญเติบโตของแบคทีเรีย"</strong></p>
+                                        <p class="box-desc">การทำโครงงานนี้นับเป็นโอกาสสำคัญที่ช่วยฝึกฝนทักษะการตั้งสมมติฐาน การใช้อุปกรณ์และสารเคมีในห้องแล็บอย่างละเอียดรอบคอบ และการวิเคราะห์ข้อมูลผลลัพธ์อย่างเป็นระบบ ซึ่งเป็นทักษะที่จำเป็นอย่างยิ่งสำหรับนักวิจัยและเภสัชกร</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="academic-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-num">GPAX</span>
+                                        <span class="stat-label">วิชาวิทย์-คณิต อยู่ในระดับดีเยี่ยม</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-num">LAB</span>
+                                        <span class="stat-label">เชี่ยวชาญการใช้เครื่องมือพื้นฐาน</span>
+                                    </div>
+                                </div>
+                                
+                                <p>ผลการเรียนสะสมและความตั้งใจในการจัดสรรเวลาอย่างมีประสิทธิภาพ เป็นเครื่องยืนยันว่าข้าพเจ้ามีความพร้อมทางวิชาการ พร้อมที่จะรับมือกับหลักสูตรเภสัชศาสตร์ที่เข้มข้นในระดับมหาวิทยาลัยต่อไป</p>
+                            </div>
+                        </section>
+
+                        <!-- Card 3: Soft Skills & Public Mind -->
+                        <section class="content-card animate-scroll-reveal" id="skills">
+                            <div class="card-tag">SECTION 03</div>
+                            <h2 class="card-title">
+                                <span class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </span>
+                                จิตสาธารณะและการสื่อสารด้วยความเข้าใจ (Empathy)
+                            </h2>
+                            
+                            <div class="card-text">
+                                <p>นอกเหนือจากมิติทางวิชาการ ข้าพเจ้าเชื่อมั่นว่าเภสัชกรที่ดีจำต้องมีจิตใจที่พร้อมบริการและทักษะการสื่อสารที่เป็นเลิศ ข้าพเจ้าจึงเข้าร่วม <strong>กิจกรรมอาสาพัฒนาของโรงเรียนและค่ายเยาวชน</strong> อย่างสม่ำเสมอ</p>
+                                
+                                <div class="skills-grid">
+                                    <div class="skill-pill">
+                                        <span class="pill-title">Empathy (ความเห็นอกเห็นใจ)</span>
+                                        <p>รับฟังคนรอบข้างอย่างเปิดใจ เพื่อค้นพบความต้องการและปัญหาที่แท้จริงของผู้ป่วย</p>
+                                    </div>
+                                    <div class="skill-pill">
+                                        <span class="pill-title">Science Communication</span>
+                                        <p>ทักษะการแปลงข้อมูลทางการแพทย์และเรื่องยาที่ซับซ้อน ให้เข้าใจง่ายสำหรับคนทั่วไป</p>
+                                    </div>
+                                    <div class="skill-pill">
+                                        <span class="pill-title">Interdisciplinary Work</span>
+                                        <p>พร้อมทำงานประสานพลังร่วมกับทีมสหวิชาชีพ ทั้งแพทย์ พยาบาล และเจ้าหน้าที่สาธารณสุข</p>
+                                    </div>
+                                </div>
+                                
+                                <p>การได้ลงพื้นที่จริงทำให้ข้าพเจ้าเข้าใจถึงความต้องการและสภาพแวดล้อมที่ต่างกันของผู้ป่วย ทักษะความละเอียดรอบคอบและหัวใจที่รักในงานบริการนี้จะเป็นเกราะกำบังชั้นดีที่จะช่วยป้องกันข้อผิดพลาดในการปฏิบัติงานจริงเพื่อสุขอนามัยที่ดีที่สุดของผู้ป่วย</p>
+                            </div>
+                        </section>
+
+                        <!-- Card 4: Vision -->
+                        <section class="content-card animate-scroll-reveal" id="vision">
+                            <div class="card-tag">SECTION 04</div>
+                            <h2 class="card-title">
+                                <span class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                </span>
+                                ปณิธานและเป้าหมายสูงสุดในสถาบันแห่งนี้
+                            </h2>
+                            
+                            <div class="card-text">
+                                <p>คณะเภสัชศาสตร์ของสถาบันแห่งนี้ คือสถานที่ในฝันที่ข้าพเจ้าตั้งใจและมุ่งมั่นที่จะเข้าศึกษา ด้วยจุดเด่นด้าน <strong>หลักสูตรที่ทันสมัย ความพร้อมด้านเครื่องมือวิจัย และคณาจารย์ผู้ทรงคุณวุฒิ</strong> ข้าพเจ้าเชื่อว่าสิ่งแวดล้อมที่นี่จะสามารถเจียระไนและดึงศักยภาพในตัวข้าพเจ้าออกมาเพื่อสร้างประโยชน์ให้แก่สังคมได้อย่างมีคุณภาพที่สุด</p>
+                                
+                                <div class="goal-box">
+                                    <div class="goal-title">เป้าหมายสูงสุดหลังจบการศึกษา</div>
+                                    <p>มุ่งมั่นประกอบวิชาชีพเป็น <strong>"เภสัชกรโรงพยาบาลที่มีความเชี่ยวชาญเฉพาะทางในการบริบาลทางเภสัชกรรม (Pharmaceutical Care)"</strong> คอยให้คำปรึกษา เฝ้าระวังความปลอดภัย และปกป้องผู้ป่วยจากการใช้ยาผิดประเภทอย่างสุดความสามารถ</p>
+                                </div>
+                                
+                                <p class="final-word">ข้าพเจ้าพร้อมแล้วที่จะทุ่มเททั้งแรงกาย แรงใจ สติปัญญา และจริยธรรม เพื่อเข้ารับการศึกษาและเติบโตเป็นบุคลากรทางการแพทย์ที่มีคุณภาพ เพื่อยกระดับสุขภาพของชุมชนและสร้างคุณูปการแก่สังคมในวันข้างหน้า</p>
+                            </div>
+                        </section>
+                        
+                    </div>
+                </main>
+            </div>
+            
+            <!-- Page bottom decoration waves -->
+            <div class="content-bg-decor top-decor"></div>
+            <div class="content-bg-decor bottom-decor"></div>
+        </section>
+        
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

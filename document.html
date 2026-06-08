@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำไมต้องเภสัชศาสตร์ | กมลทิพย์ ลัคนาวิวัฒน์</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Charm:wght@700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #0B1C33;
+            --navy-medium: #142844;
+            --pink-primary: #D63384;
+            --pink-bright: #E84C7A;
+            --pink-soft: #FFF2F5;
+            --gold-primary: #C5A880;
+            --white: #FFFFFF;
+            --text-navy: #0B1C33;
+            --text-gray: #333333;
+            
+            --font-title: 'Mitr', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+            --font-serif: 'Charm', serif;
+        }
+
+        /* Reset and Print setup */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 210mm;
+            height: 297mm;
+            background-color: var(--white);
+            font-family: var(--font-body);
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Page Frame */
+        .page-document {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            padding: 22mm 15mm 20mm 15mm;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+        }
+
+        /* ------------------ DECORATIVE CURVES (Matching Cover) ------------------ */
+        .decor-curve-top {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120mm;
+            height: 55mm;
+            background: linear-gradient(135deg, rgba(214, 51, 132, 0.15) 0%, rgba(11, 28, 51, 0.05) 100%);
+            border-bottom-left-radius: 100% 80%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .decor-curve-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 90mm;
+            height: 40mm;
+            background: linear-gradient(315deg, rgba(214, 51, 132, 0.1) 0%, rgba(11, 28, 51, 0.05) 100%);
+            border-top-right-radius: 100% 70%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ------------------ HEADER SECTION ------------------ */
+        .doc-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--navy-dark);
+            padding-bottom: 5mm;
+            margin-bottom: 6mm;
+        }
+
+        .header-left {
+            max-width: 110mm;
+        }
+
+        .doc-tag {
+            font-family: var(--font-title);
+            font-size: 10px;
+            color: var(--pink-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .doc-title {
+            font-family: var(--font-title);
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--navy-dark);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .doc-subtitle {
+            font-family: var(--font-body);
+            font-size: 11px;
+            color: var(--navy-medium);
+            font-weight: 500;
+        }
+
+        /* Compact Profile Card in Header */
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(11, 28, 51, 0.15);
+            max-width: 70mm;
+        }
+
+        .profile-badge-img-container {
+            width: 42px;
+            height: 52px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-badge-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--white);
+        }
+
+        .profile-badge-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-badge-name {
+            font-family: var(--font-title);
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .profile-badge-school {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2px;
+        }
+
+        .profile-badge-target {
+            font-size: 9px;
+            color: var(--pink-bright);
+            font-weight: 600;
+        }
+
+        /* ------------------ MAIN GRID LAYOUT ------------------ */
+        .doc-grid {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 6mm;
+            flex: 1;
+        }
+
+        .grid-column-left {
+            display: flex;
+            flex-direction: column;
+            gap: 5mm;
+        }
+
+        .grid-column-right {
+            display: flex;
+            flex-direction: column;
+            gap: 5mm;
+        }
+
+        /* ------------------ COMPONENT CARDS ------------------ */
+        .doc-card {
+            background-color: var(--white);
+            border: 1px solid rgba(11, 28, 51, 0.12);
+            border-radius: 14px;
+            padding: 4.5mm 5mm;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--navy-dark), var(--pink-primary));
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 2.5mm;
+        }
+
+        .card-num {
+            font-family: var(--font-title);
+            font-size: 9px;
+            color: var(--pink-primary);
+            background-color: var(--pink-soft);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-family: var(--font-title);
+            font-size: 13px;
+            color: var(--navy-dark);
+            font-weight: 500;
+        }
+
+        .card-body {
+            font-size: 10.5px;
+            color: var(--text-gray);
+            text-align: justify;
+        }
+
+        .card-body p {
+            margin-bottom: 1.5mm;
+        }
+
+        .card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-body strong {
+            color: var(--navy-dark);
+            font-weight: 600;
+        }
+
+        /* Quote Box inside Inspiration */
+        .quote-box {
+            background-color: var(--pink-soft);
+            border-left: 3px solid var(--pink-primary);
+            padding: 2.5mm 3.5mm;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2.5mm;
+        }
+
+        .quote-text {
+            font-family: var(--font-body);
+            font-size: 10.5px;
+            color: var(--navy-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Project Box */
+        .project-box {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 3mm 3.5mm;
+            margin: 2mm 0;
+        }
+
+        .project-title {
+            font-family: var(--font-title);
+            font-size: 10.5px;
+            color: var(--gold-primary);
+            margin-bottom: 1px;
+        }
+
+        .project-desc {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            margin-bottom: 0 !important;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3mm;
+            margin-top: 2mm;
+        }
+
+        .stat-item {
+            background-color: var(--pink-soft);
+            border: 1px solid rgba(214, 51, 132, 0.15);
+            border-radius: 8px;
+            padding: 2mm;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-family: var(--font-title);
+            font-size: 15px;
+            color: var(--pink-primary);
+            font-weight: 600;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .stat-lbl {
+            font-size: 8px;
+            color: var(--navy-medium);
+            font-weight: 500;
+        }
+
+        /* Skill Pill List */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+            margin-top: 1.5mm;
+        }
+
+        .skill-pill {
+            background-color: var(--pink-soft);
+            border: 1px solid rgba(214, 51, 132, 0.12);
+            border-radius: 8px;
+            padding: 1.5mm 2.5mm;
+        }
+
+        .skill-name {
+            font-family: var(--font-title);
+            font-size: 10px;
+            color: var(--navy-dark);
+            display: block;
+            margin-bottom: 0.5mm;
+            font-weight: 500;
+        }
+
+        .skill-desc {
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* Goal highlight box */
+        .goal-box {
+            background: linear-gradient(135deg, var(--navy-medium), var(--navy-dark));
+            color: var(--white);
+            border-radius: 8px;
+            padding: 3mm 3.5mm;
+            margin-top: 2mm;
+            border: 1px solid rgba(197, 168, 128, 0.25);
+        }
+
+        .goal-title {
+            font-family: var(--font-title);
+            font-size: 10.5px;
+            color: var(--gold-primary);
+            margin-bottom: 1px;
+        }
+
+        .goal-desc {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            margin-bottom: 0 !important;
+        }
+
+        .final-p {
+            margin-top: 2.5mm;
+            font-weight: 500;
+            border-top: 1px dashed rgba(11, 28, 51, 0.15);
+            padding-top: 2mm;
+        }
+
+        /* ------------------ FOOTER SECTION ------------------ */
+        .doc-footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(11, 28, 51, 0.15);
+            padding-top: 3.5mm;
+            margin-top: 4mm;
+        }
+
+        .footer-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            height: 24px;
+            width: auto;
+        }
+
+        .footer-text {
+            font-size: 8.5px;
+            color: var(--navy-medium);
+            font-weight: 500;
+        }
+
+        .footer-page-num {
+            font-family: var(--font-title);
+            font-size: 9px;
+            color: var(--pink-primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-document">
+        
+        <!-- Background Curves matching Cover Page -->
+        <div class="decor-curve-top"></div>
+        <div class="decor-curve-bottom"></div>
+
+        <!-- Document Header -->
+        <header class="doc-header">
+            <div class="header-left">
+                <span class="doc-tag">PORTFOLIO DOCUMENT</span>
+                <h1 class="doc-title">ทำไมต้องเภสัชศาสตร์?</h1>
+                <p class="doc-subtitle">เรียบเรียงความคิดและปณิธานความมุ่งมั่นสู่เส้นทางวิชาชีพด้านเภสัชกรรมบำบัด</p>
+            </div>
+            
+            <!-- Compact Profile Card -->
+            <div class="profile-badge">
+                <div class="profile-badge-img-container">
+                    <img src="angun.jpg" alt="นางสาวกมลทิพย์ ลัคนาวิวัฒน์" class="profile-badge-img">
+                </div>
+                <div class="profile-badge-info">
+                    <span class="profile-badge-name">กมลทิพย์ ลัคนาวิวัฒน์</span>
+                    <span class="profile-badge-school">รร.วรนารีเฉลิม จ.สงขลา</span>
+                    <span class="profile-badge-target">คณะเภสัชศาสตร์ (บริบาลเภสัชกรรม)</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Document Content Grid -->
+        <main class="doc-grid">
+            
+            <!-- Left Column: Inspiration & Goals -->
+            <div class="grid-column-left">
+                
+                <!-- Card 1: Inspiration -->
+                <section class="doc-card" style="flex: 1;">
+                    <div class="card-header">
+                        <span class="card-num">01</span>
+                        <h2 class="card-title">แรงบันดาลใจจากความห่วงใยในครอบครัว</h2>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <p class="quote-text">“ยาเป็นได้ทั้งคุณและโทษหากขาดผู้เชี่ยวชาญ คณะเภสัชศาสตร์จึงไม่ใช่เพียงแค่คณะที่เรียนเรื่องยา แต่คือศาสตร์แห่งความแม่นยำที่ช่วยยกระดับคุณภาพชีวิตของผู้ป่วย”</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p>ความสนใจต่อวิชาชีพเภสัชศาสตร์ของข้าพเจ้าเริ่มต้นจากครอบครัว ข้าพเจ้าเติบโตมากับคุณยายที่ต้องรับประทานยาหลายเม็ดในแต่ละวันเพื่อรักษาโรคเรื้อรัง ภาพเหล่านั้นจุดประกายความสงสัยใคร่รู้ว่า เม็ดยาขนาดเล็กเหล่านั้นสามารถออกฤทธิ์รักษาโรคในร่างกายได้อย่างไร</p>
+                        <p>จนกระทั่งได้ติดตามคุณยายไปโรงพยาบาลและฟังเภสัชกรอธิบายกลไกการออกฤทธิ์และเตือนเรื่องปฏิกิริยาระหว่างยา (Drug Interaction) อย่างละเอียด เหตุการณ์นั้นทำให้ข้าพเจ้าตระหนักว่า <strong>ยาเป็นดาบสองคม</strong> ที่ต้องใช้ความรู้และความแม่นยำทางวิทยาศาสตร์ในการควบคุมดูแล ความประทับใจนี้กลายเป็นแรงผลักดันสำคัญที่ทำให้ข้าพเจ้าตั้งเป้าหมายอย่างแน่วแน่ที่จะศึกษาในคณะเภสัชศาสตร์</p>
+                    </div>
+                </section>
+
+                <!-- Card 4: Career Goals -->
+                <section class="doc-card">
+                    <div class="card-header">
+                        <span class="card-num">04</span>
+                        <h2 class="card-title">ปณิธานและเป้าหมายสูงสุดในสถาบันแห่งนี้</h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p>คณะเภสัชศาสตร์ของสถาบันแห่งนี้เป็นหลักสูตรที่ข้าพเจ้าใฝ่ฝันอย่างยิ่ง เนื่องจากมีความทันสมัย เครื่องมือวิจัยที่ครบครัน และคณาจารย์ผู้เชี่ยวชาญที่จะช่วยเจียระไนศักยภาพของข้าพเจ้าได้อย่างเต็มที่</p>
+                        
+                        <div class="goal-box">
+                            <h4 class="goal-title">เป้าหมายวิชาชีพหลัก</h4>
+                            <p class="goal-desc">มุ่งมั่นเป็น <strong>เภสัชกรโรงพยาบาลด้านการบริบาลทางเภสัชกรรม (Pharmaceutical Care)</strong> ดูแลความปลอดภัย ปกป้องผู้ป่วยจากการใช้ยาผิดประเภท และยกระดับระบบสาธารณสุขของชุมชน</p>
+                        </div>
+                        
+                        <p class="final-p">ข้าพเจ้าพร้อมแล้วที่จะทุ่มเทแรงกาย แรงใจ สติปัญญา และจริยธรรมวิชาชีพ เพื่อเข้ารับการศึกษาและเติบโตเป็นเภสัชกรที่มีคุณภาพและสร้างประโยชน์ให้แก่สังคมอย่างแท้จริง</p>
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- Right Column: Academic Preparation & Soft Skills -->
+            <div class="grid-column-right">
+                
+                <!-- Card 2: Academic Readiness -->
+                <section class="doc-card">
+                    <div class="card-header">
+                        <span class="card-num">02</span>
+                        <h2 class="card-title">ความพร้อมทางวิชาการและงานวิจัย</h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p>ข้าพเจ้าเตรียมความพร้อมใน <strong>สายวิทยาศาสตร์-คณิตศาสตร์</strong> และมีความสุขทุกครั้งที่เรียนวิทยาศาสตร์เชิงทดลองในห้องปฏิบัติการ เคมีและชีววิทยา</p>
+                        
+                        <div class="project-box">
+                            <h4 class="project-title">โครงงานวิทยาศาสตร์เด่น</h4>
+                            <p class="project-desc">"การศึกษาประสิทธิภาพของสารสกัดหยาบจากพืชสมุนไพรท้องถิ่นในการยับยั้งการเจริญเติบโตของแบคทีเรีย" เพื่อฝึกทักษะสมมติฐานและแล็บอย่างระบบ</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-val">วิทยาศาสตร์</span>
+                                <span class="stat-lbl">ผลการเรียนเฉลี่ยดีเยี่ยม</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">LAB SKILLS</span>
+                                <span class="stat-lbl">ละเอียดรอบคอบเป็นระบบ</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card 3: Soft Skills -->
+                <section class="doc-card" style="flex: 1;">
+                    <div class="card-header">
+                        <span class="card-num">03</span>
+                        <h2 class="card-title">จิตสาธารณะและการสื่อสารด้วยความเข้าใจ</h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p>ข้าพเจ้าเชื่อว่าเภสัชกรที่ดีจำต้องมีใจรักบริการและทักษะการสื่อสารที่ดีเลิศ จึงได้เข้าร่วมกิจกรรมอาสาพัฒนาของโรงเรียนและค่ายเยาวชนอย่างต่อเนื่อง ซึ่งช่วยฝึกฝนทักษะสำคัญดังนี้:</p>
+                        
+                        <div class="skills-list">
+                            <div class="skill-pill">
+                                <span class="skill-name">Empathy (ความเข้าใจคนรอบข้าง)</span>
+                                <span class="skill-desc">รับฟังอย่างใส่ใจ เข้าใจปัญหาเชิงลึกเพื่อการบริบาลอย่างทั่วถึง</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="skill-name">Science Communication</span>
+                                <span class="skill-desc">แปลงข้อมูลยาที่ซับซ้อนให้เข้าใจง่าย ป้องกันความเสี่ยงแก่ผู้รับบริการ</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="skill-name">Collaboration (การทำงานร่วมกัน)</span>
+                                <span class="skill-desc">พร้อมร่วมงานกับสหวิชาชีพทางการแพทย์ แพทย์ พยาบาล อย่างปลอดภัยที่สุด</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+            
+        </main>
+
+        <!-- Document Footer -->
+        <footer class="doc-footer">
+            <div class="footer-logo-area">
+                <img src="psu.webp" alt="PSU Logo" class="footer-logo">
+                <span class="footer-text">คณะเภสัชศาสตร์ มหาวิทยาลัยสงขลานครินทร์ (เป้าหมายสูงสุด)</span>
+            </div>
+            <span class="footer-page-num">PAGE 1</span>
+        </footer>
+
+    </div>
+</body>
+</html>
