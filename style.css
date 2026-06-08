@@ -676,6 +676,13 @@ body {
     border-left: 4px solid var(--gold-primary);
 }
 
+.project-highlight-box strong,
+.project-highlight-box em,
+.goal-box strong,
+.goal-box em {
+    color: var(--gold-primary) !important;
+}
+
 .box-icon {
     color: var(--gold-primary);
     flex-shrink: 0;
