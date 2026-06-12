@@ -431,6 +431,61 @@
             color: var(--pink-primary);
             font-weight: 600;
         }
+
+        /* Appendix / Gallery Document Page Styles */
+        @media print {
+            .page-document {
+                page-break-after: always;
+            }
+            .page-document:last-child {
+                page-break-after: avoid;
+            }
+        }
+
+        .appendix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5mm;
+            flex: 1;
+            margin-bottom: 3mm;
+            position: relative;
+            z-index: 10;
+        }
+
+        .appendix-item {
+            border: 1.5px solid rgba(11, 28, 51, 0.12);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #FAFAFA;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(11,28,51,0.05);
+        }
+
+        .appendix-item img {
+            width: 100%;
+            height: calc(100% - 6.5mm);
+            object-fit: contain;
+            background-color: var(--white);
+            display: block;
+        }
+
+        .appendix-item-title {
+            height: 6.5mm;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            font-size: 8.5px;
+            font-family: var(--font-title);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 4px;
+            font-weight: 500;
+            border-top: 1px solid rgba(11, 28, 51, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -576,6 +631,183 @@
             <span class="footer-page-num">PAGE 1</span>
         </footer>
 
+    </div>
+
+    <!-- Appendix Page 1 (Page 2) -->
+    <div class="page-document">
+        <div class="decor-curve-top"></div>
+        <div class="decor-curve-bottom"></div>
+
+        <header class="doc-header">
+            <div class="header-left">
+                <span class="doc-tag">APPENDIX / ภาคผนวก</span>
+                <h1 class="doc-title" style="font-size: 22px;">เกียรติบัตรและผลงานดีเด่น (1/3)</h1>
+                <p class="doc-subtitle">รางวัลและความสำเร็จที่ภาคภูมิใจในระดับนานาชาติและระดับประเทศ</p>
+            </div>
+            <div class="profile-badge">
+                <div class="profile-badge-img-container">
+                    <img src="angun.jpg" alt="นางสาวกมลทิพย์ ลัคนาวิวัฒน์" class="profile-badge-img">
+                </div>
+                <div class="profile-badge-info">
+                    <span class="profile-badge-name">กมลทิพย์ ลัคนาวิวัฒน์</span>
+                    <span class="profile-badge-target">คณะเภสัชศาสตร์ (บริบาลเภสัชกรรม)</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="appendix-grid">
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643156_0.jpg" alt="WICE 2025 Silver Medal">
+                <div class="appendix-item-title">เหรียญเงินระดับโลก WICE 2025 (Malaysia) - โครงงาน HydroSense Biochar System</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643157_0.jpg" alt="ISPC 2025 Bronze Medal">
+                <div class="appendix-item-title">เหรียญทองแดงระดับโลก ISPC 2025 (Indonesia) - นวัตกรรมระบบกรองน้ำและอากาศ</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643158_0.jpg" alt="AI Venture Sprint 2025 Gold Medal">
+                <div class="appendix-item-title">เหรียญทอง AI Venture Sprint 2025 - การบริหารธุรกิจนวัตกรรมเพื่อตลาด (PSU)</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643159_0.jpg" alt="UTCC Investment 2024 Winner">
+                <div class="appendix-item-title">รางวัลชนะเลิศ นักลงทุนรุ่นใหม่@UTCC 2024 - ประเภทมูลค่าพอร์ตการลงทุนสูงสุด</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643160_0.jpg" alt="Southern Inventor Award 2024 Bronze Medal">
+                <div class="appendix-item-title">เหรียญทองแดง Southern Inventor Award 2024 - นวัตกรรมปุ๋ยหมักชานอ้อยและ Aspergillus</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643161_0.jpg" alt="Southern Inventor Award 2024 Certificate">
+                <div class="appendix-item-title">เกียรติบัตรเหรียญทองแดง Southern Inventor Award 2024 (มหาวิทยาลัยทักษิณ)</div>
+            </div>
+        </main>
+
+        <footer class="doc-footer">
+            <div class="footer-logo-area">
+                <img src="psu.webp" alt="PSU Logo" class="footer-logo">
+                <span class="footer-text">คณะเภสัชศาสตร์ มหาวิทยาลัยสงขลานครินทร์ (เป้าหมายสูงสุด)</span>
+            </div>
+            <span class="footer-page-num">PAGE 2</span>
+        </footer>
+    </div>
+
+    <!-- Appendix Page 2 (Page 3) -->
+    <div class="page-document">
+        <div class="decor-curve-top"></div>
+        <div class="decor-curve-bottom"></div>
+
+        <header class="doc-header">
+            <div class="header-left">
+                <span class="doc-tag">APPENDIX / ภาคผนวก</span>
+                <h1 class="doc-title" style="font-size: 22px;">เกียรติบัตรและผลงานดีเด่น (2/3)</h1>
+                <p class="doc-subtitle">การแข่งขัน Hackathon โครงงานทางการแพทย์ และกิจกรรมอบรมทักษะระดับประเทศ</p>
+            </div>
+            <div class="profile-badge">
+                <div class="profile-badge-img-container">
+                    <img src="angun.jpg" alt="นางสาวกมลทิพย์ ลัคนาวิวัฒน์" class="profile-badge-img">
+                </div>
+                <div class="profile-badge-info">
+                    <span class="profile-badge-name">กมลทิพย์ ลัคนาวิวัฒน์</span>
+                    <span class="profile-badge-target">คณะเภสัชศาสตร์ (บริบาลเภสัชกรรม)</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="appendix-grid">
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643162_0.jpg" alt="Mental Health AI Hackathon 2024">
+                <div class="appendix-item-title">ผ่านเข้ารอบชิงชนะเลิศ (15 ทีมสุดท้าย) Mental Health AI Hackathon 2024</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643163_0.jpg" alt="IMRC NextGen 2025">
+                <div class="appendix-item-title">ผู้เข้าร่วมการแข่งขันนำเสนองานวิจัยวิชาการแพทย์รอบแรก IMRC NextGen 2025 ณ วพม.</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643164_0.jpg" alt="BME Innovators Challenge 2025">
+                <div class="appendix-item-title">ผู้เข้าร่วมแข่งขันแผนธุรกิจนวัตกรรมทางการแพทย์ BME Innovators Challenge 2025</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643165_0.jpg" alt="Yala Hackathon 2023">
+                <div class="appendix-item-title">ผู้ผ่านการคัดเลือกการประกวดไอเดีย Yala Hackathon 2023 Season 2 (เมืองสุขภาวะดี)</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643167_0.jpg" alt="Design Thinking Workshop">
+                <div class="appendix-item-title">เกียรติบัตรการเข้าอบรมกระบวนการคิดเชิงออกแบบ (Design Thinking Workshop 2024)</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643168_0.jpg" alt="Public Service Certificate">
+                <div class="appendix-item-title">เกียรติบัตรบันทึกกิจกรรมบำเพ็ญประโยชน์ อาสาสาธารณชน และกิจกรรมพัฒนาโรงเรียน</div>
+            </div>
+        </main>
+
+        <footer class="doc-footer">
+            <div class="footer-logo-area">
+                <img src="psu.webp" alt="PSU Logo" class="footer-logo">
+                <span class="footer-text">คณะเภสัชศาสตร์ มหาวิทยาลัยสงขลานครินทร์ (เป้าหมายสูงสุด)</span>
+            </div>
+            <span class="footer-page-num">PAGE 3</span>
+        </footer>
+    </div>
+
+    <!-- Appendix Page 3 (Page 4) -->
+    <div class="page-document">
+        <div class="decor-curve-top"></div>
+        <div class="decor-curve-bottom"></div>
+
+        <header class="doc-header">
+            <div class="header-left">
+                <span class="doc-tag">APPENDIX / ภาคผนวก</span>
+                <h1 class="doc-title" style="font-size: 22px;">ภาพกิจกรรมและโครงงานวิทยาศาสตร์ (3/3)</h1>
+                <p class="doc-subtitle">กิจกรรมทักษะในห้องปฏิบัติการ ค่ายวิชาการ และการฝึกฝนวิจัยเชิงปฏิบัติการ</p>
+            </div>
+            <div class="profile-badge">
+                <div class="profile-badge-img-container">
+                    <img src="angun.jpg" alt="นางสาวกมลทิพย์ ลัคนาวิวัฒน์" class="profile-badge-img">
+                </div>
+                <div class="profile-badge-info">
+                    <span class="profile-badge-name">กมลทิพย์ ลัคนาวิวัฒน์</span>
+                    <span class="profile-badge-target">คณะเภสัชศาสตร์ (บริบาลเภสัชกรรม)</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="appendix-grid">
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643169_0.jpg" alt="Scientific Camp Certificate">
+                <div class="appendix-item-title">เกียรติบัตรการอบรมวิชาการวิทยาศาสตร์ การเขียนแผน และแล็บวิชาการ</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643170_0.jpg" alt="Volunteer Certificate">
+                <div class="appendix-item-title">เกียรติบัตรการบำเพ็ญสาธารณประโยชน์ด้วยการเข้าร่วมค่ายเยาวชนอาสาพัฒนาสังคม</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643171_0.jpg" alt="Achievements Record">
+                <div class="appendix-item-title">ภาพบันทึกใบประกาศการสนับสนุนงานวิชาการและการจัดพอร์ตลงทุนเชิงนวัตกรรม</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643172_0.jpg" alt="Lab Experiments">
+                <div class="appendix-item-title">ภาพการทำโครงงานและการลงพื้นที่วิจัย วิเคราะห์ประสิทธิภาพของถ่านชีวภาพและสารสกัด</div>
+            </div>
+            <div class="appendix-item">
+                <img src="ผลงาน/S__7643173_0.jpg" alt="Lab Experiments 2">
+                <div class="appendix-item-title">ภาพกิจกรรมในห้องทดลองเคมีและชีววิทยา เพื่อเสริมสร้างทักษะแล็บระดับมหาวิทยาลัย</div>
+            </div>
+            <!-- Empty box to keep grid alignment neat -->
+            <div class="appendix-item" style="background-color: transparent; border: 1px dashed rgba(11,28,51,0.15); box-shadow: none;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--navy-medium); font-family: var(--font-title); font-size: 10px; text-align: center; padding: 10px;">
+                    <img src="psu.webp" alt="PSU Logo" style="width: 40px; height: auto; margin-bottom: 6px; background: transparent;">
+                    มุ่งมั่นสู่เป้าหมายวิชาชีพเภสัชกรโรงพยาบาล<br>มหาวิทยาลัยสงขลานครินทร์
+                </div>
+            </div>
+        </main>
+
+        <footer class="doc-footer">
+            <div class="footer-logo-area">
+                <img src="psu.webp" alt="PSU Logo" class="footer-logo">
+                <span class="footer-text">คณะเภสัชศาสตร์ มหาวิทยาลัยสงขลานครินทร์ (เป้าหมายสูงสุด)</span>
+            </div>
+            <span class="footer-page-num">PAGE 4</span>
+        </footer>
     </div>
 </body>
 </html>

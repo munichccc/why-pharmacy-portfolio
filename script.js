@@ -121,4 +121,82 @@ document.addEventListener('DOMContentLoaded', () => {
             revealObserver.observe(el);
         });
     }
+
+    // 6. Interactive Lightbox Modal Gallery
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img'));
+    let currentImgIndex = 0;
+
+    function openLightbox(index) {
+        currentImgIndex = index;
+        const img = galleryImages[index];
+        if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt || "ผลงานและเกียรติบัตร";
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Lock scrolling
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Unlock scrolling
+    }
+
+    function showNextImage() {
+        currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
+        openLightbox(currentImgIndex);
+    }
+
+    function showPrevImage() {
+        currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
+        openLightbox(currentImgIndex);
+    }
+
+    // Event Listeners for click on items
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    // Close button
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Prev/Next buttons
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNextImage();
+    });
+
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrevImage();
+    });
+
+    // Backdrop click to close
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation controls
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+            showNextImage();
+        } else if (e.key === 'ArrowLeft') {
+            showPrevImage();
+        }
+    });
 });
