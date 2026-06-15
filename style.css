@@ -1518,3 +1518,100 @@ body {
     }
 }
 
+/* Awards Timeline and Competitions List styles */
+.awards-list-box, .competitions-list-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-medium);
+    border-radius: 16px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.competitions-list-box {
+    margin-top: 1.25rem;
+}
+
+.awards-list-title {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    color: var(--navy-dark);
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--pink-pastel);
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.awards-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--pink-pastel);
+}
+
+.award-timeline-item {
+    position: relative;
+}
+
+.award-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.25rem - 6px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--pink-primary);
+    border: 2px solid var(--white);
+}
+
+.award-year {
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pink-primary);
+    margin-bottom: 2px;
+}
+
+.award-details h5 {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--navy-dark);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.award-details p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 0;
+}
+
+.competitions-bullets {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.competitions-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+.competitions-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--pink-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    top: -2px;
+}
+
